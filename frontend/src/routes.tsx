@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { PrivateRoute } from './components/PrivateRoute'
+import { PrivateRoute } from './services/PrivateRoute'
 import { CreateNewUser } from './pages/CreateNewUser'
 import { DashBoard } from './pages/DashBoard'
 import { Login } from './pages/Login'
