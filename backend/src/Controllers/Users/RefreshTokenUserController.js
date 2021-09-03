@@ -30,8 +30,7 @@ module.exports = async (req, res) => {
       });
   }
 
-  const newTtoken = sign({}, process.env.SECRET_TOKEN, {
-    subject: userToken.user_id,
+  const newTtoken = sign({ email: userToken.email }, process.env.SECRET_TOKEN, {
     expiresIn: process.env.EXPIRES_IN_TOKEN,
   })
 
