@@ -22,7 +22,6 @@ module.exports = async (req, res) => {
     .select('users.*')
 
   if (!userToken) {
-    console.log('refresh inválido');
     return res
       .status(401)
       .json({

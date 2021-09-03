@@ -33,8 +33,6 @@ module.exports = async (req, res) => {
       expiresIn: process.env.EXPIRES_IN_REFRESH_TOKEN,
     })
 
-    // console.log("refresh criado:",refresh_token);
-
     await knex('tokens').where({ user_id: id }).del()
 
     const expires_date = dayjs().add(30, 'seconds').toDate()

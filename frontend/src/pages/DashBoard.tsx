@@ -1,6 +1,3 @@
-// import { useState } from 'react'
-// import { useEffect } from 'react'
-// import { api } from '../services/api'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
 import '../styles/Home.scss'

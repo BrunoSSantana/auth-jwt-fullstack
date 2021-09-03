@@ -9,7 +9,7 @@ type User = {
   email: string;
 
 }
-// Os dados que serão passados pelo context em "value={}"
+
 type AuthContextType = {
   user: User | undefined;
 }
