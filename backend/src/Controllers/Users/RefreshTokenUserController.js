@@ -31,6 +31,7 @@ module.exports = async (req, res) => {
   }
 
   const newTtoken = sign({ email: userToken.email }, process.env.SECRET_TOKEN, {
+    subject: userToken.id,
     expiresIn: process.env.EXPIRES_IN_TOKEN,
   })
 
@@ -44,7 +45,7 @@ module.exports = async (req, res) => {
 
   await knex('tokens').insert({
     refresh_token: new_refresh_token,
-    user_id: userToken.user_id,
+    user_id: userToken.id,
     expires_date,
   })
 
