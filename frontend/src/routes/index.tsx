@@ -3,15 +3,20 @@ import { PrivateRoute } from './PrivateRoute'
 import { CreateNewUser } from '../pages/CreateNewUser'
 import { DashBoard } from '../pages/DashBoard'
 import { Login } from '../pages/Login'
+import { AuthContextProvider } from '../context/AuthContext'
+
 
 export function Routes() {
-  return(
+
+  return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/new_user" component={CreateNewUser} />
-        <Route exact path="/" component={Login} />
-        <PrivateRoute path="/dashboard" component={ DashBoard } />
-      </Switch>
+      <AuthContextProvider>
+        <Switch>
+          <Route exact path="/new_user" component={CreateNewUser} />
+          <Route exact path="/" component={Login} />
+          <PrivateRoute path="/dashboard" component={DashBoard} />
+        </Switch>
+      </AuthContextProvider>
     </BrowserRouter>
   )
 }
