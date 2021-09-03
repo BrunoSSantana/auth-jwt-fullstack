@@ -5,7 +5,7 @@ const dayjs = require('dayjs')
 
 require('dotenv').config()
 
-module.exports = async (req, res, next) => {
+module.exports = async (req, res) => {
   try {
     const { email, password } = req.body
 
@@ -48,6 +48,6 @@ module.exports = async (req, res, next) => {
     return res.json({ token, refresh_token })
 
   } catch (error) {
-    next(error)
+    console.log(error)
   }
 }
