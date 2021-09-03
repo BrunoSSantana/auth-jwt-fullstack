@@ -5,16 +5,6 @@ import '../styles/Home.scss'
 
 
 export function DashBoard() {
-
-  // (async () => {
-  //   const result = await api({
-  //     method: 'get',
-  //     url: '/',
-  //     headers: {'authorization'}
-  
-  //   })
-  //   console.log(result);
-  // })()
     
   return (
     <div>

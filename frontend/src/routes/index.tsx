@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { PrivateRoute } from './services/PrivateRoute'
-import { CreateNewUser } from './pages/CreateNewUser'
-import { DashBoard } from './pages/DashBoard'
-import { Login } from './pages/Login'
+import { PrivateRoute } from './PrivateRoute'
+import { CreateNewUser } from '../pages/CreateNewUser'
+import { DashBoard } from '../pages/DashBoard'
+import { Login } from '../pages/Login'
 
 export function Routes() {
   return(

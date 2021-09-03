@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Redirect, Route } from "react-router-dom";
-import { isAuthenticated } from "./auth";
+import { isAuthenticated } from "../services/auth";
 
 type ProtectedRouteProps = {
   component: React.ComponentType<any>;
