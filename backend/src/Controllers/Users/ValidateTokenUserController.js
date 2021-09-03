@@ -11,11 +11,11 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const {email} = verify(authHeader, process.env.SECRET_TOKEN)
+    const { email } = verify(authHeader, process.env.SECRET_TOKEN)
 
     const [user] = await knex('users')
       .where({ email })
-    
+        
     return res.status(200).json({ auth: true, user:{ name: user.username, email: user.email, id: user.id} })
   } catch (err) {
 
