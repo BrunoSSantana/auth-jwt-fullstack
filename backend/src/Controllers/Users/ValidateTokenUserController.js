@@ -1,4 +1,5 @@
 require('dotenv').config()
+const knex = require('../../database')
 const { verify } = require('jsonwebtoken')
 
 
@@ -10,13 +11,15 @@ module.exports = async (req, res) => {
   }
 
   try {
-    verify(authHeader, process.env.SECRET_TOKEN)
+    const {email} = verify(authHeader, process.env.SECRET_TOKEN)
 
-    return res.status(200).json({ auth: true })
+    const [user] = await knex('users')
+      .where({ email })
+    
+    return res.status(200).json({ auth: true, user:{ name: user.username, email: user.email, id: user.id} })
   } catch (err) {
 
     if (err.name === 'TokenExpiredError') {
-
       return res.json({refresh: true})
     }
 

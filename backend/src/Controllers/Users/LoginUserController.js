@@ -24,7 +24,7 @@ module.exports = async (req, res, next) => {
       return res.json({ message: 'email or password incorrect' })
     }
 
-    const token = sign({ id }, process.env.SECRET_TOKEN, {
+    const token = sign({ email }, process.env.SECRET_TOKEN, {
       subject: user.id,
       expiresIn: process.env.EXPIRES_IN_TOKEN,
     })
