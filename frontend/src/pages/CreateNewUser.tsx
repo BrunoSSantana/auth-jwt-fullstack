@@ -10,7 +10,7 @@ export function CreateNewUser() {
 
   async function createUser() {
     
-    const result = await api({
+    await api({
       method: 'post',
       url: '/users',
       data: {
@@ -19,8 +19,6 @@ export function CreateNewUser() {
         password,
       }
     })
-
-    console.log(result);
     
   }
 
