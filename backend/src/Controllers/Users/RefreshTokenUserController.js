@@ -18,6 +18,8 @@ module.exports = async (req, res) => {
 
   const [userToken] = await knex('tokens')
     .where({ refresh_token })
+    .join('users', 'users.id', '=', 'tokens.user_id')
+    .select('users.*')
 
   if (!userToken) {
     console.log('refresh inválido');
