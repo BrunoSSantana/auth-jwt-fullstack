@@ -9,7 +9,7 @@ export function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/new_user" component={CreateNewUser} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={Login} />
         <PrivateRoute path="/dashboard" component={ DashBoard } />
       </Switch>
     </BrowserRouter>
