@@ -1,13 +1,5 @@
 import { api } from "./api";
 
-// verifica se existe token
-
-// envia o token para o back pra receber uma auth
-
-// se auth for true, a função retorna true
-
-// se tiver expirado executa o refresh token onde vai setar um novo token e um novo refresh token e então retornará true
-
 export async function isAuthenticated() {
 
   const token = localStorage.getItem('token')

@@ -5,7 +5,7 @@ const dayjs = require('dayjs')
 
 require('dotenv').config()
 
-module.exports = async (req, res, next) => {
+module.exports = async (req, res) => {
   try {
     const { email, password } = req.body
 
@@ -24,7 +24,7 @@ module.exports = async (req, res, next) => {
       return res.json({ message: 'email or password incorrect' })
     }
 
-    const token = sign({ id }, process.env.SECRET_TOKEN, {
+    const token = sign({ email }, process.env.SECRET_TOKEN, {
       subject: user.id,
       expiresIn: process.env.EXPIRES_IN_TOKEN,
     })
@@ -32,8 +32,6 @@ module.exports = async (req, res, next) => {
     const refresh_token = sign({}, process.env.SECRET_REFRESH_TOKEN, {
       expiresIn: process.env.EXPIRES_IN_REFRESH_TOKEN,
     })
-
-    // console.log("refresh criado:",refresh_token);
 
     await knex('tokens').where({ user_id: id }).del()
 
@@ -48,6 +46,6 @@ module.exports = async (req, res, next) => {
     return res.json({ token, refresh_token })
 
   } catch (error) {
-    next(error)
+    console.log(error)
   }
 }
