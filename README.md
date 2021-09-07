@@ -2,7 +2,7 @@
 
 The objective of this project is to practice creating an application with user creation and route authentication with jwt, creating both the backend part with `nodejs` and `express`, and the frontend part, with `reactjs`.
 
-## Funcionalidades
+## functionality
 
 - User creation
 - Login
